@@ -1,0 +1,49 @@
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#e1f5fe'
+    primaryTextColor: '#01579b'
+    primaryBorderColor: '#0288d1'
+    lineColor: '#0288d1'
+    secondaryColor: '#f8bbd0'
+    tertiaryColor: '#fff'
+    fontSize: 14px
+  layout: fixed
+---
+flowchart LR
+ subgraph System["ระบบจัดการการลาพนักงาน EdVISORY"]
+    direction TB
+        UC1["ตรวจสอบโควต้าวันลาคงเหลือ"]
+        UC2["ยื่นคำขอลา"]
+        UC3["เลือกประเภทการลา"]
+        UC4["เลือกระยะเวลาการลา"]
+        UC5["ติดตามสถานะการลา"]
+        UC6["อนุมัติ/ปฏิเสธการลา"]
+        UC7["อนุมัติ/ปฏิเสธการลาระยะยาว"]
+        UC8["จัดการโควต้าวันลา"]
+        UC9["ดูข้อมูลการลาของพนักงาน"]
+  end
+    Employee(["พนักงาน"]) -- actor --> UC1 & UC2 & UC5
+    Supervisor(["Supervisor"]) -- actor --> UC6 & UC9
+    DeptHead(["หัวหน้าแผนก"]) -- actor --> UC7 & UC9
+    HR(["ฝ่าย HR"]) -- actor --> UC6 & UC8 & UC9
+    UC2 -. include .-> UC3 & UC4 & UC1
+    UC6 -. extend .-> UC7
+     UC1:::usecase
+     UC2:::usecase
+     UC3:::usecase
+     UC4:::usecase
+     UC5:::usecase
+     UC6:::usecase
+     UC7:::usecase
+     UC8:::usecase
+     UC9:::usecase
+     Employee:::actor
+     Supervisor:::actor
+     DeptHead:::actor
+     HR:::actor
+     System:::system
+    classDef actor fill:#f3e5f5,stroke:#6a1b9a,stroke-width:2px
+    classDef usecase fill:#e1f5fe,stroke:#0288d1,stroke-width:1px,color:#01579b
+    classDef system fill:#ffffff,stroke:#0288d1,stroke-width:2px,color:#01579b
