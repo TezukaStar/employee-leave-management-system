@@ -1,0 +1,99 @@
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#ffffff',
+    'primaryTextColor': '#000000',
+    'primaryBorderColor': '#000000',
+    'lineColor': '#000000',
+    'secondaryColor': '#ffffff',
+    'tertiaryColor': '#ffffff',
+    'fontSize': '14px'
+  },
+  'layout': 'fixed'
+}}%%
+
+graph TD
+    %% Employee swimlane
+    E_Start(("เริ่มต้น"))
+    E_CheckQuota["พนักงาน: ตรวจสอบโควต้าวันลา"]
+    E_Decision{"พนักงาน: มีวันลาเพียงพอ?"}
+    E_CreateRequest["พนักงาน: สร้างคำขอลา"]
+    E_SelectType["พนักงาน: เลือกประเภทการลา<br/>(ลาป่วย/ลากิจ/ลาพักร้อน)"]
+    E_SelectDuration["พนักงาน: เลือกรูปแบบระยะเวลาการลา<br/>(ครึ่งวันเช้า/ครึ่งวันบ่าย/เต็มวัน)"]
+    E_SelectDate["พนักงาน: เลือกวันที่ต้องการลา"]
+    E_FillReason["พนักงาน: ระบุเหตุผลในการลา"]
+    E_Submit["พนักงาน: ส่งคำขอลา"]
+    E_Wait["พนักงาน: รอการอนุมัติ"]
+    E_Notified["พนักงาน: รับการแจ้งเตือนผล"]
+    E_End(("จบ"))
+    
+    %% Supervisor swimlane
+    S_Receive["Supervisor: รับคำขอลา"]
+    S_Review["Supervisor: ตรวจสอบคำขอ"]
+    S_Approve{"Supervisor: อนุมัติ?"}
+    S_CheckLongLeave{"Supervisor: ลา 5 วันขึ้นไป?"}
+    S_Forward["Supervisor: ส่งต่อ HR"]
+    S_Reject["Supervisor: ปฏิเสธคำขอและให้เหตุผล"]
+    S_ForwardDept["Supervisor: ส่งต่อหัวหน้าแผนก"]
+    
+    %% Department Head swimlane
+    D_Receive["หัวหน้าแผนก: รับคำขอลาระยะยาว"]
+    D_Review["หัวหน้าแผนก: ตรวจสอบคำขอ"]
+    D_Decision{"หัวหน้าแผนก: อนุมัติ?"}
+    D_Forward["หัวหน้าแผนก: ส่งต่อ HR"]
+    D_Reject["หัวหน้าแผนก: ปฏิเสธคำขอและให้เหตุผล"]
+    
+    %% HR swimlane
+    H_Receive["HR: รับคำขอลา"]
+    H_Review["HR: ตรวจสอบคำขอ"]
+    H_Decision{"HR: อนุมัติ?"}
+    H_Approve["HR: อนุมัติคำขอ"]
+    H_Reject["HR: ปฏิเสธคำขอและให้เหตุผล"]
+    H_Update["HR: ปรับปรุงโควต้าวันลา"]
+    H_Notify["HR: แจ้งผลการอนุมัติ"]
+    
+    %% Flow within Employee swimlane
+    E_Start --> E_CheckQuota
+    E_CheckQuota --> E_Decision
+    E_Decision -- "ไม่" --> E_End
+    E_Decision -- "ใช่" --> E_CreateRequest
+    E_CreateRequest --> E_SelectType
+    E_SelectType --> E_SelectDuration
+    E_SelectDuration --> E_SelectDate
+    E_SelectDate --> E_FillReason
+    E_FillReason --> E_Submit
+    E_Submit --> E_Wait
+    E_Wait -.-> E_Notified
+    E_Notified --> E_End
+    
+    %% Flow within Supervisor swimlane
+    S_Receive --> S_Review
+    S_Review --> S_Approve
+    S_Approve -- "ไม่" --> S_Reject
+    S_Approve -- "ใช่" --> S_CheckLongLeave
+    S_CheckLongLeave -- "ไม่" --> S_Forward
+    S_CheckLongLeave -- "ใช่" --> S_ForwardDept
+    
+    %% Flow within Department Head swimlane
+    D_Receive --> D_Review
+    D_Review --> D_Decision
+    D_Decision -- "ใช่" --> D_Forward
+    D_Decision -- "ไม่" --> D_Reject
+    
+    %% Flow within HR swimlane
+    H_Receive --> H_Review
+    H_Review --> H_Decision
+    H_Decision -- "ใช่" --> H_Approve
+    H_Decision -- "ไม่" --> H_Reject
+    H_Approve --> H_Update
+    H_Update --> H_Notify
+    H_Reject --> H_Notify
+    
+    %% Connections across swimlanes
+    E_Submit ==> S_Receive
+    S_Forward ==> H_Receive
+    S_ForwardDept ==> D_Receive
+    D_Forward ==> H_Receive
+    S_Reject ==> E_Notified
+    D_Reject ==> E_Notified
+    H_Notify ==> E_Notified

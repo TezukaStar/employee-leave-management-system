@@ -1,0 +1,101 @@
+---
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#ffffff'
+    primaryTextColor: '#000000'
+    primaryBorderColor: '#000000'
+    lineColor: '#000000'
+    secondaryColor: '#ffffff'
+    tertiaryColor: '#ffffff'
+    fontSize: 14px
+  layout: fixed
+---
+erDiagram
+    EMPLOYEES ||--o{ LEAVE_REQUESTS : ""
+    EMPLOYEES ||--o{ LEAVE_QUOTAS : ""
+    EMPLOYEES }|--|| DEPARTMENTS : ""
+    EMPLOYEES }o--|| EMPLOYEES : ""
+    DEPARTMENTS ||--o| EMPLOYEES : ""
+    LEAVE_REQUESTS ||--|| LEAVE_TYPES : ""
+    LEAVE_REQUESTS ||--|| LEAVE_DURATION_TYPES : ""
+    LEAVE_REQUESTS }o--o{ APPROVAL_STATUSES : ""
+    
+    EMPLOYEES {
+        int employee_id PK "รหัสพนักงาน"
+        varchar first_name "ชื่อ"
+        varchar last_name "นามสกุล"
+        varchar email "อีเมล"
+        varchar password "รหัสผ่าน"
+        date hire_date "วันที่เริ่มงาน"
+        int supervisor_id FK "รหัส Supervisor"
+        int department_id FK "รหัสแผนก"
+        boolean is_supervisor "เป็น Supervisor"
+        boolean is_department_head "เป็นหัวหน้าแผนก"
+        boolean is_hr "เป็น HR"
+        timestamp created_at "วันที่สร้าง"
+        timestamp updated_at "วันที่อัปเดต"
+    }
+    
+    DEPARTMENTS {
+        int department_id PK "รหัสแผนก"
+        varchar department_name "ชื่อแผนก"
+        int department_head_id FK "รหัสหัวหน้าแผนก"
+        timestamp created_at "วันที่สร้าง"
+        timestamp updated_at "วันที่อัปเดต"
+    }
+    
+    LEAVE_TYPES {
+        int leave_type_id PK "รหัสประเภทการลา"
+        varchar leave_type_name "ชื่อประเภทการลา"
+        varchar description "คำอธิบาย"
+        timestamp created_at "วันที่สร้าง"
+        timestamp updated_at "วันที่อัปเดต"
+    }
+    
+    LEAVE_DURATION_TYPES {
+        int duration_type_id PK "รหัสรูปแบบระยะเวลา"
+        varchar duration_name "ชื่อรูปแบบระยะเวลา"
+        float duration_value "ค่าระยะเวลา"
+        varchar description "คำอธิบาย"
+        timestamp created_at "วันที่สร้าง"
+        timestamp updated_at "วันที่อัปเดต"
+    }
+    
+    LEAVE_QUOTAS {
+        int quota_id PK "รหัสโควต้า"
+        int employee_id FK "รหัสพนักงาน"
+        int leave_type_id FK "รหัสประเภทการลา"
+        int year "ปี"
+        float total_days "จำนวนวันทั้งหมด"
+        float used_days "จำนวนวันที่ใช้แล้ว"
+        float remaining_days "จำนวนวันคงเหลือ"
+        timestamp created_at "วันที่สร้าง"
+        timestamp updated_at "วันที่อัปเดต"
+    }
+    
+    LEAVE_REQUESTS {
+        int request_id PK "รหัสคำขอลา"
+        int employee_id FK "รหัสพนักงาน"
+        int leave_type_id FK "รหัสประเภทการลา"
+        int duration_type_id FK "รหัสรูปแบบระยะเวลา"
+        date start_date "วันที่เริ่มลา"
+        date end_date "วันที่สิ้นสุดการลา"
+        float total_days "จำนวนวันลาทั้งหมด"
+        varchar reason "เหตุผล"
+        boolean requires_dept_head_approval "ต้องการการอนุมัติจากหัวหน้าแผนก"
+        timestamp created_at "วันที่สร้าง"
+        timestamp updated_at "วันที่อัปเดต"
+    }
+    
+    APPROVAL_STATUSES {
+        int approval_id PK "รหัสการอนุมัติ"
+        int request_id FK "รหัสคำขอลา"
+        int approver_id FK "รหัสผู้อนุมัติ"
+        varchar approver_role "บทบาทผู้อนุมัติ"
+        varchar status "สถานะ"
+        varchar comments "ความคิดเห็น"
+        timestamp action_date "วันที่ดำเนินการ"
+        timestamp created_at "วันที่สร้าง"
+        timestamp updated_at "วันที่อัปเดต"
+    }

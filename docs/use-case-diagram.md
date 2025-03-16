@@ -18,8 +18,7 @@
 ---
 
 ## 3️⃣ แผนภาพ Use Case (Use Case Diagram)
-![alt text](svg/UCD.svg)
-
+![alt text](../diagrams/svg/use-case-diagram.svg)
 ---
 
 ## 4️⃣ รายละเอียด Use Cases
