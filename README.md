@@ -45,7 +45,7 @@
 - **Backend**: Node.js, Express.js
 - **Database**: PostgreSQL
 - **Authentication**: JWT (JSON Web Tokens)
-- **Deployment**: AWS (EC2, RDS), Docker
+- **Deployment**: AWS (EC2), Docker
 - **CI/CD**: GitLab CI/CD
 
 ## ความปลอดภัยของระบบ
