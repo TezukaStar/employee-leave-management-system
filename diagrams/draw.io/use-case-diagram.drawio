@@ -1,19 +1,19 @@
 <mxfile host="65bd71144e">
     <diagram id="cbBV6smP2fctqF06ubEE" name="Page-1">
-        <mxGraphModel dx="1265" dy="779" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+        <mxGraphModel dx="407" dy="647" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="3" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-                    <mxGeometry x="140" y="70" width="720" height="720" as="geometry"/>
+                    <mxGeometry x="140" y="70" width="760" height="760" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="ติดตามสถานะการลา" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="350" y="295" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="ตรวจสอบโควต้าวันลาคงเหลือ" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="570" y="110" width="150" height="60" as="geometry"/>
+                    <mxGeometry x="570" y="120" width="150" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" style="edgeStyle=entityRelationEdgeStyle;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="6" target="5" edge="1">
+                <mxCell id="17" style="edgeStyle=entityRelationEdgeStyle;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;dashed=1;" parent="1" source="6" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="24" value="include" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="17" vertex="1" connectable="0">
@@ -21,7 +21,7 @@
                         <mxPoint x="-1" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="25" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="6" target="18" edge="1">
+                <mxCell id="25" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;dashed=1;" parent="1" source="6" target="18" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="26" value="include" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="25" vertex="1" connectable="0">
@@ -29,11 +29,33 @@
                         <mxPoint x="8" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="27" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" parent="1" source="6" target="19" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="27" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" parent="1" target="19" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="471" y="240" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="28" value="include" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="27" vertex="1" connectable="0">
                     <mxGeometry x="-0.1548" y="-2" relative="1" as="geometry">
+                        <mxPoint x="6" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="60" value="" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;dashed=1;" parent="1" source="6" target="59" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="510" y="340"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="61" value="include" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="60" vertex="1" connectable="0">
+                    <mxGeometry x="-0.138" y="-1" relative="1" as="geometry">
+                        <mxPoint y="24" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="71" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;dashed=1;" edge="1" parent="1" source="6" target="70">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="include" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="71">
+                    <mxGeometry x="0.0867" y="3" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
@@ -82,13 +104,15 @@
                     <mxGeometry x="570" y="210" width="150" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="เลือกระยะเวลาการลา" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="570" y="300" width="150" height="60" as="geometry"/>
+                    <mxGeometry x="570" y="296" width="150" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="31" value="&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;พนักงาน&lt;/span&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="60" y="131" width="30" height="60" as="geometry"/>
+                    <mxGeometry x="50" y="130" width="30" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="36" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="32" target="35" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="70" y="430" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="58" value="actor" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="36" vertex="1" connectable="0">
                     <mxGeometry x="-0.1016" y="2" relative="1" as="geometry">
@@ -96,7 +120,9 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="40" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="32" target="39" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="89.99999999999989" y="451" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="57" value="actor" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="40" vertex="1" connectable="0">
                     <mxGeometry x="-0.1067" y="-1" relative="1" as="geometry">
@@ -104,7 +130,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="32" value="Supervisor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="60" y="361" width="30" height="60" as="geometry"/>
+                    <mxGeometry x="50" y="410" width="30" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="41" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="33" target="39" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -116,17 +142,17 @@
                 </mxCell>
                 <mxCell id="47" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="33" target="45" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="200" y="670" as="sourcePoint"/>
+                        <mxPoint x="200" y="730" as="sourcePoint"/>
                         <Array as="points">
-                            <mxPoint x="350" y="620"/>
-                            <mxPoint x="330" y="635"/>
-                            <mxPoint x="310" y="640"/>
-                            <mxPoint x="390" y="630"/>
-                            <mxPoint x="400" y="650"/>
-                            <mxPoint x="420" y="630"/>
-                            <mxPoint x="350" y="630"/>
-                            <mxPoint x="340" y="580"/>
-                            <mxPoint x="540" y="620"/>
+                            <mxPoint x="350" y="680"/>
+                            <mxPoint x="330" y="695"/>
+                            <mxPoint x="310" y="700"/>
+                            <mxPoint x="390" y="690"/>
+                            <mxPoint x="400" y="710"/>
+                            <mxPoint x="420" y="690"/>
+                            <mxPoint x="350" y="690"/>
+                            <mxPoint x="340" y="640"/>
+                            <mxPoint x="540" y="680"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -136,12 +162,12 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="33" value="หัวหน้าแผนก" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="60" y="541" width="30" height="60" as="geometry"/>
+                    <mxGeometry x="50" y="601" width="30" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="38" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;" parent="1" source="34" target="35" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="180" y="560"/>
+                            <mxPoint x="180" y="620"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -172,9 +198,9 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="34" value="ฝ่าย HR" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="60" y="691" width="30" height="60" as="geometry"/>
+                    <mxGeometry x="50" y="740" width="30" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="46" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="35" target="45" edge="1">
+                <mxCell id="46" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" parent="1" source="35" target="45" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="49" value="extend" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="46" vertex="1" connectable="0">
@@ -182,17 +208,56 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="65" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;dashed=1;" parent="1" source="35" target="62" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="extend" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="65" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0394" y="4" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="35" value="อนุมัติ/ปฏิเสธการลา" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="350" y="400" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="350" y="460" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="39" value="ดูข้อมูลการลาของพนักงาน" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="350" y="530" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="350" y="590" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="43" value="จัดการโควต้าวันลา" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="350" y="680" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="350" y="740" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" parent="1" source="45" target="62" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="extend" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="63" vertex="1" connectable="0">
+                    <mxGeometry x="-0.0365" y="2" relative="1" as="geometry">
+                        <mxPoint x="1" as="offset"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="45" value="อนุมัติ/ปฏิเสธการลาระยะยาว" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="550" y="590" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="530" y="650" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="ระบุเหตุผลการลา" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="460" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="ระบุเหตุผลการปฏิเสธ" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="720" y="650" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="รับแจ้งเตือน" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="370" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" style="edgeStyle=entityRelationEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="31" target="67" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="90" y="160" as="sourcePoint"/>
+                        <mxPoint x="360" y="335" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="69" value="actor" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="68" vertex="1" connectable="0">
+                    <mxGeometry x="0.3064" y="-1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="70" value="เลือกวันที่ต้องการลา" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="570" y="379" width="150" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

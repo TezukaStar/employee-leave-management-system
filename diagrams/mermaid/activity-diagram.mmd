@@ -33,7 +33,8 @@ graph TD
     S_Approve{"Supervisor: อนุมัติ?"}
     S_CheckLongLeave{"Supervisor: ลา 5 วันขึ้นไป?"}
     S_Forward["Supervisor: ส่งต่อ HR"]
-    S_Reject["Supervisor: ปฏิเสธคำขอและให้เหตุผล"]
+    S_Reject["Supervisor: ปฏิเสธคำขอ"]
+    S_RejectReason["Supervisor: ระบุเหตุผลที่ปฏิเสธ"]
     S_ForwardDept["Supervisor: ส่งต่อหัวหน้าแผนก"]
     
     %% Department Head swimlane
@@ -41,14 +42,16 @@ graph TD
     D_Review["หัวหน้าแผนก: ตรวจสอบคำขอ"]
     D_Decision{"หัวหน้าแผนก: อนุมัติ?"}
     D_Forward["หัวหน้าแผนก: ส่งต่อ HR"]
-    D_Reject["หัวหน้าแผนก: ปฏิเสธคำขอและให้เหตุผล"]
+    D_Reject["หัวหน้าแผนก: ปฏิเสธคำขอ"]
+    D_RejectReason["หัวหน้าแผนก: ระบุเหตุผลที่ปฏิเสธ"]
     
     %% HR swimlane
     H_Receive["HR: รับคำขอลา"]
     H_Review["HR: ตรวจสอบคำขอ"]
     H_Decision{"HR: อนุมัติ?"}
     H_Approve["HR: อนุมัติคำขอ"]
-    H_Reject["HR: ปฏิเสธคำขอและให้เหตุผล"]
+    H_Reject["HR: ปฏิเสธคำขอ"]
+    H_RejectReason["HR: ระบุเหตุผลที่ปฏิเสธ"]
     H_Update["HR: ปรับปรุงโควต้าวันลา"]
     H_Notify["HR: แจ้งผลการอนุมัติ"]
     
@@ -70,6 +73,7 @@ graph TD
     S_Receive --> S_Review
     S_Review --> S_Approve
     S_Approve -- "ไม่" --> S_Reject
+    S_Reject --> S_RejectReason
     S_Approve -- "ใช่" --> S_CheckLongLeave
     S_CheckLongLeave -- "ไม่" --> S_Forward
     S_CheckLongLeave -- "ใช่" --> S_ForwardDept
@@ -79,21 +83,23 @@ graph TD
     D_Review --> D_Decision
     D_Decision -- "ใช่" --> D_Forward
     D_Decision -- "ไม่" --> D_Reject
+    D_Reject --> D_RejectReason
     
     %% Flow within HR swimlane
     H_Receive --> H_Review
     H_Review --> H_Decision
     H_Decision -- "ใช่" --> H_Approve
     H_Decision -- "ไม่" --> H_Reject
+    H_Reject --> H_RejectReason
     H_Approve --> H_Update
     H_Update --> H_Notify
-    H_Reject --> H_Notify
+    H_RejectReason --> H_Notify
     
     %% Connections across swimlanes
     E_Submit ==> S_Receive
     S_Forward ==> H_Receive
     S_ForwardDept ==> D_Receive
     D_Forward ==> H_Receive
-    S_Reject ==> E_Notified
-    D_Reject ==> E_Notified
+    S_RejectReason ==> E_Notified
+    D_RejectReason ==> E_Notified
     H_Notify ==> E_Notified

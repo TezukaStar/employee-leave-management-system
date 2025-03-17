@@ -1,38 +1,30 @@
 %%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#000000', 'secondaryColor': '#ffffff', 'tertiaryColor': '#ffffff', 'fontSize': '16px'}, 'layout': 'fixed'} }%%
 
 flowchart LR
-    %% Main Components
-    Client[("Client")]:::whiteBox
+    Client[("Client
+    (React.js Web App)")]:::whiteBox
     
-    %% AWS Cloud
     subgraph AWS["AWS Cloud"]
-        APIGateway[["API Gateway"]]:::whiteBox
+        subgraph EC2Instance["EC2 Instance"]
+            APIGateway["API Gateway Component
+            (Express.js middleware)"]:::whiteBox
+            BackendServices["Backend Services
+            (Node.js/Express.js)"]:::whiteBox
+        end
         
-        %% Backend Services - Simplified
-        BackendServices["Backend Services
-        (Node.js/Express.js)
-        on EC2"]:::whiteBox
-        
-        %% Database
         Database[(PostgreSQL Database
         on EC2)]:::whiteBox
     end
     
-    %% CI/CD
     CICD["CI/CD Pipeline
     (GitLab + Docker)"]:::whiteBox
     
-    %% Main Connections
-    Client -- "Web/API calls" --> APIGateway
-    Client -- "Authentication" --> APIGateway
-    
-    APIGateway -- "API requests" --> BackendServices
-    
-    BackendServices -- "Data Storage
-    and Logs" --> Database
-    
-    CICD -- "Deploy" --> BackendServices
+    Client -- "HTTPS API calls" --> APIGateway
+    APIGateway --> BackendServices
+    BackendServices -- "Data Storage" --> Database
+    CICD -- "Automated Deploy" --> EC2Instance
     
     %% Styles
     classDef whiteBox fill:#ffffff,stroke:#000000,stroke-width:2px,color:#000000
     style AWS fill:#ffffff,stroke:#000000,stroke-width:3px,color:#000000,stroke-dasharray: 5 5
+    style EC2Instance fill:#ffffff,stroke:#000000,stroke-width:2px,color:#000000

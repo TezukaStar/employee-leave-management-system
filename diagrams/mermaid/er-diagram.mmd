@@ -20,7 +20,10 @@ erDiagram
     LEAVE_REQUESTS ||--|| LEAVE_TYPES : ""
     LEAVE_REQUESTS ||--|| LEAVE_DURATION_TYPES : ""
     LEAVE_REQUESTS }o--o{ APPROVAL_STATUSES : ""
-    
+    EMPLOYEES ||--o{ APPROVAL_STATUSES : ""
+    EMPLOYEES ||--o{ NOTIFICATIONS : ""
+    LEAVE_REQUESTS ||--o{ NOTIFICATIONS : ""
+
     EMPLOYEES {
         int employee_id PK "รหัสพนักงาน"
         varchar first_name "ชื่อ"
@@ -82,7 +85,7 @@ erDiagram
         date start_date "วันที่เริ่มลา"
         date end_date "วันที่สิ้นสุดการลา"
         float total_days "จำนวนวันลาทั้งหมด"
-        varchar reason "เหตุผล"
+        varchar reason "เหตุผลในการลา"
         boolean requires_dept_head_approval "ต้องการการอนุมัติจากหัวหน้าแผนก"
         timestamp created_at "วันที่สร้าง"
         timestamp updated_at "วันที่อัปเดต"
@@ -94,8 +97,19 @@ erDiagram
         int approver_id FK "รหัสผู้อนุมัติ"
         varchar approver_role "บทบาทผู้อนุมัติ"
         varchar status "สถานะ"
-        varchar comments "ความคิดเห็น"
+        varchar rejection_reason "เหตุผลที่ปฏิเสธ"
         timestamp action_date "วันที่ดำเนินการ"
+        timestamp created_at "วันที่สร้าง"
+        timestamp updated_at "วันที่อัปเดต"
+    }
+    
+    NOTIFICATIONS {
+        int notification_id PK "รหัสการแจ้งเตือน"
+        int employee_id FK "รหัสพนักงานผู้รับ"
+        int request_id FK "รหัสคำขอลา"
+        varchar notification_type "ประเภทการแจ้งเตือน"
+        varchar message "ข้อความ"
+        boolean is_read "อ่านแล้ว"
         timestamp created_at "วันที่สร้าง"
         timestamp updated_at "วันที่อัปเดต"
     }

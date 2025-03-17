@@ -22,18 +22,24 @@ flowchart LR
         UC2["ยื่นคำขอลา"]
         UC3["เลือกประเภทการลา"]
         UC4["เลือกระยะเวลาการลา"]
-        UC5["ติดตามสถานะการลา"]
-        UC6["อนุมัติ/ปฏิเสธการลา"]
-        UC7["อนุมัติ/ปฏิเสธการลาระยะยาว"]
-        UC8["จัดการโควต้าวันลา"]
-        UC9["ดูข้อมูลการลาของพนักงาน"]
+        UC13["เลือกวันที่ต้องการลา"]
+        UC5["ระบุเหตุผลในการลา"]
+        UC6["ติดตามสถานะการลา"]
+        UC7["อนุมัติ/ปฏิเสธการลา"]
+        UC8["ระบุเหตุผลการปฏิเสธ"]
+        UC9["อนุมัติ/ปฏิเสธการลาระยะยาว"]
+        UC10["จัดการโควต้าวันลา"]
+        UC11["ดูข้อมูลการลาของพนักงาน"]
+        UC12["รับการแจ้งเตือน"]
   end
-    Employee(["พนักงาน"]) --> UC1 & UC2 & UC5
-    Supervisor(["Supervisor"]) --> UC6 & UC9
-    DeptHead(["หัวหน้าแผนก"]) --> UC7 & UC9
-    HR(["ฝ่าย HR"]) --> UC6 & UC8 & UC9
-    UC2 -. include .-> UC3 & UC4 & UC1
-    UC6 -. extend .-> UC7
+    Employee(["พนักงาน"]) --> UC1 & UC2 & UC6 & UC12
+    Supervisor(["Supervisor"]) --> UC7 & UC11
+    DeptHead(["หัวหน้าแผนก"]) --> UC9 & UC11
+    HR(["ฝ่าย HR"]) --> UC7 & UC10 & UC11
+    UC2 -. include .-> UC3 & UC4 & UC1 & UC5 & UC13
+    UC7 -. extend .-> UC9
+    UC7 -. extend .-> UC8
+    UC9 -. extend .-> UC8
     
     class System whiteWithBold
-    class Employee,Supervisor,DeptHead,HR,UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8,UC9 white
+    class Employee,Supervisor,DeptHead,HR,UC1,UC2,UC3,UC4,UC5,UC6,UC7,UC8,UC9,UC10,UC11,UC12,UC13 white
